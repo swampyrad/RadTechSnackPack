@@ -1,0 +1,38 @@
+class UaS_ChexBowl : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 250;//milk and cereal combined
+		UaS_Consumable.Fluid 225;//about 8 oz of milk
+		UaS_Consumable.Bulk 10;
+		UaS_Consumable.Description "A packet of Chex cereal. Comes with a milk pouch.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up some cereal.";
+		tag "Chex cereal";
+		HDWeapon.refid "chx";
+		Inventory.Icon "CHEXA0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("You pour in the milk.");
+		AddConsumeText("Crispy!");
+		AddConsumeText("You scoop up a spoonful.");
+	}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+	
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED; 
+		weaponstatus[UGCS_LASTSPOILTIME] = -1; 
+		
+        //these should always be intact and ready to eat,
+        //since you can add these to your loadout
+	}
+	
+    states(actor){
+    spawn:
+        CHEX A -1;
+        stop;
+    }
+	
+}

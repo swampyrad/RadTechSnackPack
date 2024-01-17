@@ -1,0 +1,28 @@
+class UaS_BASpaghetti : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 200;
+		UaS_Consumable.Fluid 350;
+		UaS_Consumable.Bulk 10;
+		UaS_Consumable.Description "Rainbow sour candy belts ripped into strands and mixed with a can of cheap energy drink. It tastes as bad as it sounds.";
+		+UaS_Consumable.DRINKABLE;//this marks it as a drink ration
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a batch of battery acid spaghetti.";
+		tag "Battery Acid Spaghetti";
+		Inventory.Icon "BASPA0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("God help me.");
+		AddConsumeText("The 'spaghetti' is gross and slimy.");
+		AddConsumeText("Augh, it's so sour!");
+		AddConsumeText("The carbonation makes it worse.");
+		AddConsumeText("Don't do this.");
+	}
+	
+    states(actor){
+    spawn:
+        BASP A -1;
+        stop;
+    }
+
+}

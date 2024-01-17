@@ -1,0 +1,26 @@
+class UaS_BerryTofu : UaS_Consumable { 
+	default {
+		UaS_Consumable.Calories 300;
+		UaS_Consumable.Fluid 200;
+		UaS_Consumable.Bulk 8; 
+		UaS_Consumable.Description "A dessert version of tofu, made with strawberries.";
+		+UaS_Consumable.PACKAGED;
+
+		Inventory.PickupMessage "Picked up some strawberry tofu.";
+		tag "Strawberry Tofu";
+		Inventory.Icon "STOFU0";
+		Scale 0.5;
+	}
+	override void Messages() {
+	    AddConsumeText("The tofu is sweet and creamy.");
+	    AddConsumeText("You're surprised how well the flavors go together.");
+	    AddConsumeText("You spoon out a piece with fruit in it.");
+	}
+	
+    states(actor){
+    spawn:
+        TOFU A -1;
+        stop;
+    }
+}
+

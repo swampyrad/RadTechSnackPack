@@ -1,0 +1,26 @@
+class UaS_PotatoSmiles : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 350;
+		UaS_Consumable.Fluid 100;
+		UaS_Consumable.Bulk 10;
+		UaS_Consumable.Description "Mashed potato molded into smiley faces and deep-fried. Comes wth a few ketchup packets.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a pouch of potato smiles.";
+		tag "Potato Smiles";
+		Inventory.Icon "PSMIL0";
+		Scale 0.75;
+	}
+	override void Messages() {
+		AddOpenText("You tear open a ketchup packet.");
+		AddConsumeText("You add some ketchup before taking a bite.");
+		AddConsumeText("You down a smile in one go.");
+		AddConsumeText("Simple yet satisfying.");
+	}
+	
+    states(actor){
+    spawn:
+        PTTO A -1;
+        stop;
+    }
+	
+}

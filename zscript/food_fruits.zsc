@@ -1,0 +1,98 @@
+class UaS_Apple : UaS_Consumable { //an apple a day keeps the tyrant away
+	default {
+		UaS_Consumable.Calories 80;
+		UaS_Consumable.Fluid 120;
+		UaS_Consumable.Bulk 3;
+		UaS_Consumable.Description "A small Red Delicious apple, sealed in a vacu-formed wrapper.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up an apple.";
+		tag "Apple";
+		Inventory.Icon "FRUTA0";
+		Scale 0.5;
+	}
+	override void Messages() {
+	    AddConsumeText("It's crisp and moist!");
+	    AddConsumeText("You take a bite of the apple.");
+	}
+	
+    states(actor){
+    spawn:
+        FRUT A -1;
+        stop;
+    }
+}
+
+class UaS_Banana : UaS_Consumable { //ooooohhh, banana !
+	default {
+		UaS_Consumable.Calories 100;
+		UaS_Consumable.Fluid 50;
+		UaS_Consumable.Bulk 4; 
+		UaS_Consumable.Description "A yellow banana. Good source of potassium. Slightly radioactive.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a banana.";
+		tag "Banana";
+		Inventory.Icon "FRUTB0";
+		Scale 0.75;
+	}
+	override void Messages() {
+	    AddOpenText("You peel the banana.");
+	    AddConsumeText("Yum, it's nice and sweet!");
+	    AddConsumeText("You eat around a gross brown spot, ick.");
+	}
+	
+    states(actor){
+    spawn:
+        FRUT B -1;
+        stop;
+    }
+}
+
+class UaS_Grapes : UaS_Consumable { 
+	default {
+		UaS_Consumable.Calories 200;
+		UaS_Consumable.Fluid 150;
+		UaS_Consumable.Bulk 8;
+		UaS_Consumable.Description "A bag of grapes, pre-washed and ready to eat.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up some grapes.";
+		tag "Grapes";
+		Inventory.Icon "FRUTC0";
+		Scale 1;
+	}
+	override void Messages() {
+	    AddConsumeText("You bite off a few grapes from the bunch.");
+	    AddConsumeText("You pluck a handful and shove them in your mouth.");
+        AddConsumeText("These grapes are sweet and juicy.");
+	}
+	
+    states(actor){
+    spawn:
+        FRUT C -1;
+        stop;
+    }
+}
+
+class UaS_Orange : UaS_Consumable { //orange you glad it's not banana ? :p
+	default {
+		UaS_Consumable.Calories 75;
+		UaS_Consumable.Fluid 90;
+		UaS_Consumable.Bulk 3; 
+		UaS_Consumable.Description "Plump and juicy. Good source of Vitamin C.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up an orange.";
+		tag "Orange";
+		Inventory.Icon "FRUTD0";
+		Scale 0.75;
+	}
+	override void Messages() {
+	    AddOpenText("You peel the orange.");
+	    AddConsumeText("You eat a few slices.");
+	    AddConsumeText("The juice drips down your chin.");
+	}
+	
+    states(actor){
+    spawn:
+        FRUT D -1;
+        stop;
+    }
+}
