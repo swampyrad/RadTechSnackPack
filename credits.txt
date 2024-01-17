@@ -1,0 +1,7 @@
+A food ration pack for Ugly As Sin
+
+Custom ration sprites created by Swampyrad
+Ration code from UaS by Caligari87
+
+Fruit and cereal ration sprites based on 
+ChexQuest's health pickup graphics

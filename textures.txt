@@ -1,0 +1,60 @@
+sprite GLOGA0, 15, 15{
+    offset 7, 15
+    patch "patches/glognut.png", 0, 0
+}
+
+sprite DRATA0, 11, 7{
+    offset 5, 7
+    patch "patches/dration.png", 0, 0
+}
+
+sprite DRATB0, 11, 3{
+    offset 5, 3
+    patch "patches/dration.png", 0, 0
+}
+
+sprite FRUTA0, 13, 14{
+    offset 7, 14
+    patch "patches/apple.png", 0, 0
+}
+
+sprite FRUTB0, 15, 13{
+    offset 7, 13
+    patch "patches/banana.png", 0, 0
+}
+
+sprite FRUTC0, 16, 12{
+    offset 8, 11
+    patch "patches/grapes.png", 0, 0
+}
+
+sprite CHEXA0, 20, 10{
+    offset 19, 10
+    patch "patches/cereal.png", 0, 0
+}
+
+
+sprite FRUTD0, 8, 8{
+    offset 4, 8
+    patch "patches/orange.png", 0, 0
+}
+
+sprite PTTOA0, 21, 17{
+    offset 11, 17
+    patch "patches/potatosmiles.png", 0, 0
+}
+
+sprite TOFUA0, 28, 24{
+    offset 14, 24 
+    patch "patches/strawberry-tofu.png", 0, 0
+}
+
+sprite SNSKA0, 10, 16{
+    offset 5, 16
+    patch "patches/snuskjuice.png", 0, 0
+}
+
+sprite BASPA0, 14, 20{
+    offset 7, 20
+    patch "patches/baspaghetti.png", 0, 0
+}
