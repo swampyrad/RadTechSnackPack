@@ -58,3 +58,8 @@ sprite BASPA0, 14, 20{
     offset 7, 20
     patch "patches/baspaghetti.png", 0, 0
 }
+
+sprite TBRGA0, 16, 9{
+    offset 8, 9
+    patch "patches/trekburger.png", 0, 0
+}
