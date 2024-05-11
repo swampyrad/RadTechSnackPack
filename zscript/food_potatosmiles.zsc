@@ -7,7 +7,7 @@ class UaS_PotatoSmiles : UaS_Consumable {
 		+UaS_Consumable.PACKAGED;
 		Inventory.PickupMessage "Picked up a pouch of potato smiles.";
 		tag "Potato Smiles";
-		Inventory.Icon "PSMIL0";
+		Inventory.Icon "PTTOA0";
 		Scale 0.75;
 	}
 	override void Messages() {
