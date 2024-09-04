@@ -28,15 +28,14 @@ sprite FRUTC0, 16, 12{
     patch "patches/grapes.png", 0, 0
 }
 
-sprite CHEXA0, 20, 10{
-    offset 19, 10
-    patch "patches/cereal.png", 0, 0
-}
-
-
 sprite FRUTD0, 8, 8{
     offset 4, 8
     patch "patches/orange.png", 0, 0
+}
+
+sprite CHEXA0, 20, 10{
+    offset 19, 10
+    patch "patches/cereal.png", 0, 0
 }
 
 sprite PTTOA0, 21, 17{
@@ -63,3 +62,9 @@ sprite TBRGA0, 16, 9{
     offset 8, 9
     patch "patches/trekburger.png", 0, 0
 }
+
+sprite POPTA0, 13, 18{
+    offset 7, 18
+    patch "patches/poptart.png", 0, 0
+}
+
