@@ -2,15 +2,15 @@ const UAS_HDLD_POPTART = "ppt"; //PoPTart
 
 class UaS_PopTart : UaS_Consumable {
 	default {
-		UaS_Consumable.Calories 200;
+		UaS_Consumable.Calories 400;//roughly the amount in 2 poptarts
 		UaS_Consumable.Fluid 0;
-		UaS_Consumable.Bulk 5;
+		UaS_Consumable.Bulk 8;
 		UaS_Consumable.Description "Where a man belongs.";
 		+UaS_Consumable.PACKAGED;
 		-UaS_Consumable.RESEALABLE;
 		UaS_Consumable.SpoilRate 0;
-		Inventory.PickupMessage "Picked up a poptart.";
-		tag "Poptart";
+		Inventory.PickupMessage "Picked up a 2-pack of poptarts.";
+		tag "Poptarts";
 		hdweapon.refid UAS_HDLD_POPTART;
 		Inventory.Icon "POPTA0";
 		Scale 0.5;
