@@ -58,6 +58,11 @@ sprite BASPA0, 14, 20{
     patch "patches/baspaghetti.png", 0, 0
 }
 
+sprite CLEMA0, 14, 23{
+    offset 7, 23
+    patch "patches/lemonade.png", 0, 0
+}
+
 sprite TBRGA0, 16, 9{
     offset 8, 9
     patch "patches/trekburger.png", 0, 0
@@ -66,5 +71,25 @@ sprite TBRGA0, 16, 9{
 sprite POPTA0, 13, 18{
     offset 7, 18
     patch "patches/poptart.png", 0, 0
+}
+
+sprite MNCHA0, 18, 21{
+  offset 9, 21
+  patch "patches/munchlybox.png", 0, 0
+}
+
+sprite MNCHB0, 16, 15{
+  offset 8, 15
+  patch "patches/munchlypizza.png", 0, 0
+}
+
+sprite MNCHC0, 8, 4{
+  offset 4, 4
+  patch "patches/munchlytreat.png", 0, 0
+}
+
+sprite MNCHD0, 5, 11{
+  offset 2, 11
+  patch "patches/munchlydrink.png", 0, 0
 }
 

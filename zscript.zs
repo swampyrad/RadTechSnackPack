@@ -10,10 +10,8 @@ version "4.6"
 #include "zscript/food_cereal.zsc"
 #include "zscript/drink_juicebox.zsc"
 #include "zscript/drink_baspaghetti.zsc"
-
-//found out mixins aren't that useful unless you want a
-//bunch of rations to share the same properties
-//- Swampie
+#include "zscript/drink_lemonade.zsc"
+#include "zscript/food_munchly.zsc"
 
 //todo: planning on adding a refilable 'canteen' ration,
 //gonna see if i can use the blue potion as a base
