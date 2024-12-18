@@ -1,0 +1,129 @@
+class UaS_MunchlyMeal : UaS_Consumable {
+	default {
+		UaS_Consumable.Description "A boxed lunch containing a 'build-your-own' pizza kit, a beverage, and a treat, hawked by a group of internet 'celebrities' in a shameless attempt to siphon money from their mostly-underage fanbase.";
+ 		Inventory.PickupMessage "Picked up a Munchly Meal.";
+		tag "Munchly Meal";
+		UaS_Consumable.Bulk 20;
+		Inventory.Icon "MNCHA0";
+		HDWeapon.refid "mch";
+		Scale 0.5;
+	}
+	override void Contents() {
+		AddItem("UaS_MunchlyPizzaKit");
+		AddItem("UaS_GrimeDrink");
+		AddItem("UaS_MrMunchTreat");
+	}
+}
+
+class UaS_MunchlyPizzaKit : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 300;
+		UaS_Consumable.Fluid 30;
+		UaS_Consumable.Bulk 10;
+		UaS_Consumable.Description "A lunch kit with enough ingredients to build three small pizzas. There have been reports that the cheese is already moldy by the time they reach store shelves.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a Munchly pizza kit.";
+		tag "Munchly pizza kit";
+		Inventory.Icon "MNCHB0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("You tear off the seal.");
+		AddConsumeText("The pepperoni is kind of bland.");
+		AddConsumeText("You build a pizza and take a bite.");
+		AddConsumeText("The crust is a bit dry.");
+		AddConsumeText("Nothing compared to a real pizza.");
+		AddConsumeText("You slurp on the leftover sauce.");
+	}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+	
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED;
+		weaponstatus[UGCS_SPOILAGE] = random(0,50) * random(0,1); 
+		//random chance for pizza to already be spoiled lol
+		weaponstatus[UGCS_LASTSPOILTIME] = -1; 
+	}
+	
+    states(actor){
+    spawn:
+        MNCH B -1;
+        stop;
+    }
+	
+}
+
+class UaS_MrMunchTreat : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 60;
+		UaS_Consumable.Fluid 0;
+		UaS_Consumable.Bulk 1;
+		UaS_Consumable.Description "A bite-sized candy bar. Usually the only edible part of the Munchly Meals.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a Mr. Munch treat.";
+		tag "Mr. Munch treat";
+		Inventory.Icon "MNCHC0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("You open the wrapper.");
+		AddConsumeText("You pop the whole thing in your mouth.");
+		AddConsumeText("Just some average chocolate.");
+	}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+	
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED; 
+		weaponstatus[UGCS_LASTSPOILTIME] = -1; 
+	}
+	
+    states(actor){
+    spawn:
+        MNCH C -1;
+        stop;
+    }
+	
+}
+
+class UaS_GrimeDrink : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 8;
+		UaS_Consumable.Fluid 360;//just a little over 12 oz
+		UaS_Consumable.Bulk 8;
+		UaS_Consumable.Description "A low-calorie sports beverage, shilled by an online 'influencer'. Kids beg their parents for this stuff, despite being nothing more than artificially sweetened salt water.";
+		+UaS_Consumable.PACKAGED;
+		+UaS_Consumable.RESEALABLE;
+		+UaS_Consumable.DRINKABLE;
+		Inventory.PickupMessage "Picked up a bottle of Grime.";
+		tag "Grime hydration drink";
+		Inventory.Icon "MNCHD0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("You open the bottle.");
+		AddConsumeText("You take a swig of the drink.");
+		AddConsumeText("The sweetener is overpowering.");
+		AddConsumeText("The fruit flavoring barely comes through.");
+	}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+	
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED; 
+		weaponstatus[UGCS_LASTSPOILTIME] = -1; 
+	}
+	
+    states(actor){
+    spawn:
+        MNCH D -1;
+        stop;
+    }
+	
+}

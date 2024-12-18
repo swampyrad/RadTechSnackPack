@@ -1,0 +1,91 @@
+const UAS_HDLD_LEMONADE = "lmn";
+
+class UaS_ChargedLemonade : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 430;// these things are full of sugar
+		UaS_Consumable.Fluid 850;// roughly 30 ounces in milliliters
+		UaS_Consumable.Bulk 17;// each sip consumes 50 ml of drink
+		UaS_Consumable.Description "A large cup of fruit-infused lemonade, sold by a popular bakery/restaurant chain. It has brought about multiple lawsuits which claim it was responsible for causing heart attacks and deaths due to its high caffeine content. Drink cautiously.";
+		+UaS_Consumable.DRINKABLE;
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a charged lemonade.";
+		tag "charged lemonade";
+		hdweapon.refid UAS_HDLD_LEMONADE;
+		Inventory.Icon "CLEMA0";
+		Scale 0.5;
+	}
+	
+	//display warning messages if stim levels are dangerously high
+	void ConsumeWarning() {
+	  if(UsedUp())return;//stop if drink runs out
+	  //check if player is actually drinking
+		if (CheckButton(BT_ATTACK, CBM_HOLDING)
+		    &&weaponstatus[UGCS_OPEN]==UGCSF_OPENED
+        ){
+		    if(!owner)return;
+		  
+		  //display warning once enough time has passed
+		  if(timer>=55){
+		    if(owner.countinv("HDStim")>=500)
+	        A_Log("S T O P  D R I N K I N G  Y O U  I D I O T");
+	      else if(owner.countinv("HDStim")>=480)
+	        A_Log("You don't feel so good...");
+	      else if(owner.countinv("HDStim")>=440)
+	        A_Log("You feel your whole body vibrating.");
+	      else if(owner.countinv("HDStim")>=400)
+		      A_Log("You notice some discomfort in your chest.");
+		      
+		    //reset timer after message
+		    timer=0;
+		  }
+		}
+	}
+	
+	//note to self: set up "timer" variables *outside* of DoEffect
+	//or else they never actually start counting
+	int timer;
+	override void DoEffect(){
+	  super.DoEffect();
+	  if(timer!=55)timer++;
+	 
+	  ConsumeWarning();
+	}
+	
+	//standard consume messages
+	override void Messages() {
+		AddOpenText("You jab the straw in.");
+		AddConsumeText("Sluuuuurrrp...");
+		AddConsumeText("Goodness, it's incredibly sweet.");
+		AddConsumeText("Mmmm, so fruity.");
+		}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED;
+		weaponstatus[UGCS_LASTSPOILTIME] = -1;
+		
+        //these should always be intact and ready to drink,
+        //since you can add these to your loadout
+	}
+	
+	//not sure if i should make a custom "caffeine" drug for this,
+	//since stim already works as a decent analogue for it
+	override void OnConsume(){ 
+	  if(!owner)return;
+	  owner.A_GiveInventory("HDStim", 15);
+	  //each 30 oz serving had 260 mg of caffeine
+	  //17 * 15 = 255, so close enough
+	  //pretty much a poor man's stimpack
+	  //do NOT chug 3 in a row if you enjoy living :P
+	}
+	
+    states(actor){
+    spawn:
+        CLEM A -1;
+        stop;
+    }
+
+}
