@@ -11,4 +11,6 @@ Loadout Codes:
 - "glg" - Thorn Glognut
 - "smk" - "Snusk Juice"
 - "ppt" - Pop-Tart
+- "mch" - Munchly Meal
+- "lmn" - Charged Lemonade
 (Requires Ugly As Sin)
