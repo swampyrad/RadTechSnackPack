@@ -6,6 +6,7 @@ Foods without codes can only be found in random spawns.
 Loadout Codes:
 - "drb" - D Ration Bar
 - "lgn" - Logan Bar
+- "twx" - Diagonal Twix
 - "brg" - Trekking Burger
 - "chx" - Cereal Ration
 - "glg" - Thorn Glognut
