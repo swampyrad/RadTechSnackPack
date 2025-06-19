@@ -2,6 +2,7 @@
 A food ration addon for Hideous Destructor.
 Includes a variety of food items you can add to your loadouts. 
 Foods without codes can only be found in random spawns.
+(Requires Ugly As Sin)
 
 Loadout Codes:
 - "drb" - D Ration Bar
@@ -14,4 +15,4 @@ Loadout Codes:
 - "ppt" - Pop-Tart
 - "mch" - Munchly Meal
 - "lmn" - Charged Lemonade
-(Requires Ugly As Sin)
+- "bly" - Billy Roll
