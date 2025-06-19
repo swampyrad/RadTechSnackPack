@@ -13,6 +13,7 @@ version "4.6"
 #include "zscript/drink_lemonade.zsc"
 #include "zscript/food_munchly.zsc"
 #include "zscript/food_diagonaltwix.zsc"
+#include "zscript/food_clownmeat.zsc"
 
 //todo: planning on adding a refilable 'canteen' ration,
 //gonna see if i can use the blue potion as a base

@@ -98,3 +98,7 @@ sprite MNCHD0, 5, 11{
   patch "patches/munchlydrink.png", 0, 0
 }
 
+sprite CLWNA0, 19, 14{
+  offset 9, 14
+  patch "patches/clownmeat.png", 0, 0
+}
