@@ -1,0 +1,39 @@
+class UaS_ClownMeat : UaS_Consumable {
+	default {
+		UaS_Consumable.Calories 1440;//average amount in a pound of bologna
+		UaS_Consumable.Fluid 160;//small amount of meat juices
+		UaS_Consumable.Bulk 16;//16 slices of clowny goodness
+		UaS_Consumable.Description "A 1 lb. roll of luncheon meat formed in the visage of a clown. Pre-sliced and ready to serve.";
+		+UaS_Consumable.PACKAGED;
+		Inventory.PickupMessage "Picked up a Billy roll.";
+		tag "Billy Roll";
+		HDWeapon.refid "bly";
+		Inventory.Icon "CLWNA0";
+		Scale 0.5;
+	}
+	override void Messages() {
+		AddOpenText("You tear open the wrapper.");
+		AddConsumeText("You stuff a slice of clown face into your mouth.");
+		AddConsumeText("It's like he's staring into your soul.");
+        AddConsumeText("Meat clown!");
+	}
+	
+	override void InitializeWepStats(bool idfa) {
+		Contents();
+		weaponstatus[UGCS_CONSUMED] = 0;
+		weaponstatus[UGCS_GAVECONTENTS] = false;
+	
+		weaponstatus[UGCS_OPEN] = UGCSF_SEALED; 
+		weaponstatus[UGCS_LASTSPOILTIME] = -1; 
+		
+        //these should always be intact and ready to eat,
+        //since you can add these to your loadout
+	}
+	
+    states(actor){
+    spawn:
+        CLWN A -1;
+        stop;
+    }
+	
+}
