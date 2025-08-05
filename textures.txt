@@ -73,11 +73,6 @@ sprite POPTA0, 13, 18{
     patch "patches/poptart.png", 0, 0
 }
 
-sprite TWIXA0, 45, 45{
-    offset 22, 45
-    patch "patches/diagonaltwix.png", 0, 0
-}
-
 sprite MNCHA0, 18, 21{
   offset 9, 21
   patch "patches/munchlybox.png", 0, 0
