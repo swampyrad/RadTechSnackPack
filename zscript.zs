@@ -12,7 +12,6 @@ version "4.6"
 #include "zscript/drink_baspaghetti.zsc"
 #include "zscript/drink_lemonade.zsc"
 #include "zscript/food_munchly.zsc"
-#include "zscript/food_diagonaltwix.zsc"
 #include "zscript/food_clownmeat.zsc"
 
 //todo: planning on adding a refilable 'canteen' ration,
